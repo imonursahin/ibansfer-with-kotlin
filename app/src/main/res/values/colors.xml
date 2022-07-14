@@ -13,6 +13,7 @@
     <color name="TopBarColor">#FF29313c</color>
     <color name="Bttn">#FFF1B70B</color>
     <color name="FocusColor">#FFF1B70B</color>
+    <color name="IbanListColor">#FF1c252e</color>
 
 
 </resources>

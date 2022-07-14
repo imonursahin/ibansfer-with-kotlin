@@ -13,6 +13,7 @@ import com.example.ibansfer.Pages.PanelScreen
 import com.example.ibansfer.Pages.SplashScreen
 import com.example.ibansfer.Utils.Screen
 import com.example.ibanshare.Pages.AddIbanScreen
+import com.example.ibanshare.Pages.InfoScreen
 import com.example.ibanshare.ui.theme.IbanShareTheme
 import kotlinx.coroutines.DelicateCoroutinesApi
 
@@ -45,5 +46,7 @@ fun Navigation() {
         composable(Screen.SplashScreen.route) { SplashScreen(navController = navController) }
         composable(Screen.PanelScreen.route) { PanelScreen(navController = navController) }
         composable(Screen.AddIbanScreen.route) { AddIbanScreen(navController = navController) }
+        composable(Screen.InfoScreen.route) { InfoScreen(navController = navController) }
+
     }
 }
