@@ -40,7 +40,9 @@ fun PanelScreen(navController: NavController) {
                 text = {
                     Text(text = "+ Ekle")
                 },
-                onClick = { /* Do something */ },
+                onClick = {
+                    navController.navigate("AddIbanScreen")
+                },
 
                 backgroundColor = colorResource(id = R.color.Bttn),
 

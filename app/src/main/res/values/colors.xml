@@ -12,6 +12,7 @@
     <color name="MainColor">#FF181f29</color>
     <color name="TopBarColor">#FF29313c</color>
     <color name="Bttn">#FFF1B70B</color>
+    <color name="FocusColor">#FFF1B70B</color>
 
 
 </resources>
