@@ -14,6 +14,7 @@
     <color name="Bttn">#FFF1B70B</color>
     <color name="FocusColor">#FFF1B70B</color>
     <color name="IbanListColor">#FF1c252e</color>
+    <color name="ErrorColor">#F44336</color>
 
 
 </resources>

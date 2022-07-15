@@ -1,4 +1,4 @@
-package com.example.ibansfer.Pages
+package com.example.ibansfer.Views
 
 import android.annotation.SuppressLint
 import androidx.compose.runtime.Composable

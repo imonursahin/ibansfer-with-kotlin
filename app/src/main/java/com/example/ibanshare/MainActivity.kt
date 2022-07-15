@@ -9,12 +9,12 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.ibansfer.Pages.PanelScreen
-import com.example.ibansfer.Pages.SplashScreen
+import com.example.ibanshare.Views.PanelScreen
+import com.example.ibansfer.Views.SplashScreen
 import com.example.ibansfer.Utils.Screen
-import com.example.ibanshare.Pages.AddIbanScreen
-import com.example.ibanshare.Pages.InfoScreen
+import com.example.ibanshare.Views.AddIbanScreen
 import com.example.ibanshare.ui.theme.IbanShareTheme
+import com.example.ibanshare.Views.InfoScreen
 import kotlinx.coroutines.DelicateCoroutinesApi
 
 

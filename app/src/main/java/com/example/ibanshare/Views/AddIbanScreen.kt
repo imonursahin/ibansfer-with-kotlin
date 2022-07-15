@@ -1,35 +1,39 @@
-package com.example.ibanshare.Pages
+package com.example.ibanshare.Views
 
-import android.graphics.fonts.FontFamily
-import androidx.compose.foundation.BorderStroke
+import android.app.Application
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.text.BasicTextField
-import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
-import androidx.compose.material.MaterialTheme.typography
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.FontFamily.Companion.SansSerif
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.input.KeyboardType
-import androidx.compose.ui.text.input.PasswordVisualTransformation
-import androidx.compose.ui.text.input.TextFieldValue
-import androidx.compose.ui.text.style.TextDirection
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.example.ibanshare.R
+import com.example.ibanshare.ViewsModel.AddIbanViewModel
+import com.example.ibanshare.ViewsModelFactory.AddIbanViewModelFactory
 
 
 @Composable
 fun AddIbanScreen(navController: NavController) {
+
+    val ibanOwner = remember { mutableStateOf("") }
+    val ibanBank = remember { mutableStateOf("") }
+    val ibanNumber = remember { mutableStateOf("") }
+
+    val localFocusManager = LocalFocusManager.current
+
+    val context = LocalContext.current
+    val viewModel: AddIbanViewModel = viewModel(
+        factory = AddIbanViewModelFactory(context.applicationContext as Application)
+    )
+
     Scaffold(
         backgroundColor = colorResource(id = R.color.MainColor),
         topBar = {
@@ -52,12 +56,10 @@ fun AddIbanScreen(navController: NavController) {
 
         content = {
             Column {
-                var bankName by remember { mutableStateOf(TextFieldValue("")) }
-                var IbanOwner by remember { mutableStateOf(TextFieldValue("")) }
-                var IbanNumber by remember { mutableStateOf(TextFieldValue("")) }
+
 
                 OutlinedTextField(
-                    value = bankName,
+                    value = ibanBank.value,
                     modifier = Modifier
                         .padding(8.dp)
                         .fillMaxWidth(),
@@ -75,11 +77,11 @@ fun AddIbanScreen(navController: NavController) {
                         unfocusedBorderColor = colorResource(id = R.color.white)
                     ),
                     onValueChange = {
-                        bankName = it
+                        ibanBank.value = it
                     },
                 )
                 OutlinedTextField(
-                    value = IbanOwner,
+                    value = ibanOwner.value,
                     modifier = Modifier
                         .padding(8.dp)
                         .fillMaxWidth(),
@@ -97,11 +99,11 @@ fun AddIbanScreen(navController: NavController) {
                         unfocusedBorderColor = colorResource(id = R.color.white)
                     ),
                     onValueChange = {
-                        IbanOwner = it
+                        ibanOwner.value = it
                     },
                 )
                 OutlinedTextField(
-                    value = IbanNumber,
+                    value = ibanNumber.value,
                     modifier = Modifier
                         .padding(8.dp)
                         .fillMaxWidth(),
@@ -119,7 +121,7 @@ fun AddIbanScreen(navController: NavController) {
                         unfocusedBorderColor = colorResource(id = R.color.white)
                     ),
                     onValueChange = {
-                        IbanNumber = it
+                        ibanNumber.value = it
                     },
                 )
 
@@ -131,7 +133,27 @@ fun AddIbanScreen(navController: NavController) {
                         .padding(12.dp)
                 ) {
                     Button(
-                        onClick = { },
+                        onClick = {
+                            if (ibanBank.value.isNotEmpty() && ibanOwner.value.isNotEmpty() && ibanNumber.value.isNotEmpty()) {
+
+                                viewModel.addData(
+                                    ibanBank.value,
+                                    ibanOwner.value,
+                                    ibanNumber.value
+                                )
+
+                                localFocusManager.clearFocus()
+                                navController.popBackStack()
+
+                                println("success")
+
+
+                            } else {
+                                println("error")
+                            }
+
+
+                        },
                         colors = ButtonDefaults.buttonColors(
                             backgroundColor = colorResource(id = R.color.Bttn),
                             contentColor = colorResource(id = R.color.white)
