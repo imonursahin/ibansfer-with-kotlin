@@ -7,6 +7,7 @@ import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -30,6 +31,10 @@ fun PanelScreen(navController: NavController) {
         factory = PanelViewModelFactory(context.applicationContext as Application)
     )
     val ibanList = viewModel.ibanList.observeAsState(listOf())
+
+    LaunchedEffect(key1 = true) {
+        viewModel.loadData()
+    }
 
     Scaffold(
         backgroundColor = colorResource(id = R.color.MainColor),
