@@ -1,6 +1,7 @@
 package com.example.ibanshare.views
 
 import android.app.Application
+import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
@@ -8,6 +9,7 @@ import androidx.compose.material.icons.filled.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.res.colorResource
@@ -60,7 +62,11 @@ fun AddIbanScreen(navController: NavController) {
         },
 
         content = {
-            Column {
+            Column(modifier = Modifier.pointerInput(Unit) {
+                detectTapGestures(onTap = {
+                    localFocusManager.clearFocus()
+                })
+            }) {
 
 
                 OutlinedTextField(
@@ -77,6 +83,7 @@ fun AddIbanScreen(navController: NavController) {
                         )
                     },
                     placeholder = { Text(text = "Onur Şahin") },
+
                     colors = TextFieldDefaults.outlinedTextFieldColors(
                         focusedBorderColor = colorResource(id = R.color.FocusColor),
                         unfocusedBorderColor = colorResource(id = R.color.white)
@@ -84,7 +91,9 @@ fun AddIbanScreen(navController: NavController) {
                     onValueChange = {
                         ibanBank.value = it
                     },
-                )
+                    maxLines = 1,
+
+                    )
                 OutlinedTextField(
                     value = ibanOwner.value,
                     modifier = Modifier
@@ -106,6 +115,7 @@ fun AddIbanScreen(navController: NavController) {
                     onValueChange = {
                         ibanOwner.value = it
                     },
+                    maxLines = 1,
                 )
                 OutlinedTextField(
                     value = ibanNumber.value,
@@ -128,7 +138,9 @@ fun AddIbanScreen(navController: NavController) {
                     onValueChange = {
                         ibanNumber.value = it
                     },
-                )
+                    maxLines = 1,
+
+                    )
 
                 Column(
                     horizontalAlignment = Alignment.CenterHorizontally,
@@ -146,18 +158,18 @@ fun AddIbanScreen(navController: NavController) {
                                     ibanOwner.value,
                                     ibanNumber.value
                                 )
-                                localFocusManager.clearFocus()
                                 navController.popBackStack()
 
                             } else {
 
                                 snackbarCoroutineScope.launch {
                                     scaffoldState.snackbarHostState.showSnackbar("Tüm alanları doldurun")
+
                                 }
 
 
                             }
-
+                            localFocusManager.clearFocus()
 
                         },
                         colors = ButtonDefaults.buttonColors(

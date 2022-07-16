@@ -8,6 +8,7 @@ import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.Info
+import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Share
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -48,6 +49,7 @@ fun PanelScreen(navController: NavController) {
             TopAppBar(
                 title = { Text(text = "IBANsfer") },
                 backgroundColor = colorResource(id = R.color.TopBarColor),
+
                 navigationIcon = {
                     IconButton(onClick = { navController.navigate("InfoScreen") }) {
                         Icon(
@@ -55,8 +57,10 @@ fun PanelScreen(navController: NavController) {
                             contentDescription = "App ınfo",
                         )
                     }
-                }
+
+                },
             )
+
 
         },
 
@@ -104,7 +108,7 @@ fun PanelScreen(navController: NavController) {
 
                                             val type = "text/plain"
                                             val extraText =
-                                                "${bank.ibanBank} \n ${bank.ibanOwner} \n ${bank.ibanNumber} \n IBANsfer aracılığıyla gönderildi."
+                                                "Banka: ${bank.ibanBank} \n  Alıcı Adı: ${bank.ibanOwner} \n IBAN: ${bank.ibanNumber} \n IBANsfer aracılığıyla gönderildi."
                                             val shareWith = ""
 
                                             val intent = Intent(Intent.ACTION_SEND)
