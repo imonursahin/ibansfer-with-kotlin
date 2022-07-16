@@ -1,10 +1,10 @@
-package com.example.ibanshare.Utils.room
+package com.example.ibanshare.utils.room
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.example.ibanshare.Utils.Ibans
+import com.example.ibanshare.utils.Ibans
 
 @Database(entities = [Ibans::class], version = 1)
 abstract class Db : RoomDatabase() {

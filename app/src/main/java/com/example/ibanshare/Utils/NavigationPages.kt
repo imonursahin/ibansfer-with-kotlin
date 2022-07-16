@@ -1,4 +1,4 @@
-package com.example.ibansfer.Utils
+package com.example.ibansfer.utils
 
 
 sealed class Screen(val route: String) {

@@ -1,8 +1,8 @@
-package com.example.ibanshare.ViewsModel
+package com.example.ibanshare.viewsmodel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
-import com.example.ibanshare.Utils.repo.IbanDaoRepo
+import com.example.ibanshare.utils.repo.IbanDaoRepo
 
 class AddIbanViewModel(application: Application) : AndroidViewModel(application) {
 

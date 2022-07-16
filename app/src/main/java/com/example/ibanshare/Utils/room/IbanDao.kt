@@ -1,10 +1,10 @@
-package com.example.ibanshare.Utils.room
+package com.example.ibanshare.utils.room
 
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
-import com.example.ibanshare.Utils.Ibans
+import com.example.ibanshare.utils.Ibans
 
 @Dao
 interface IbanDao {

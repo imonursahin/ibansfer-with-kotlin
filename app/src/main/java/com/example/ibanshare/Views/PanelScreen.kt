@@ -1,4 +1,4 @@
-package com.example.ibanshare.Views
+package com.example.ibanshare.views
 
 import android.app.Application
 import androidx.compose.foundation.layout.*
@@ -18,8 +18,8 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.example.ibanshare.R
-import com.example.ibanshare.ViewsModel.PanelViewModel
-import com.example.ibanshare.ViewsModelFactory.PanelViewModelFactory
+import com.example.ibanshare.viewsmodel.PanelViewModel
+import com.example.ibanshare.viewsmodelfactory.PanelViewModelFactory
 
 
 @Composable

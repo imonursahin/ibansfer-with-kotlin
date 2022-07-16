@@ -1,4 +1,4 @@
-package com.example.ibanshare.Utils
+package com.example.ibanshare.utils
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

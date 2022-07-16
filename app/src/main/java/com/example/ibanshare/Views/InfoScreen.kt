@@ -1,4 +1,4 @@
-package com.example.ibanshare.Views
+package com.example.ibanshare.views
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*

@@ -1,9 +1,9 @@
-package com.example.ibanshare.Utils.repo
+package com.example.ibanshare.utils.repo
 
 import android.app.Application
 import androidx.lifecycle.MutableLiveData
-import com.example.ibanshare.Utils.Ibans
-import com.example.ibanshare.Utils.room.Db
+import com.example.ibanshare.utils.Ibans
+import com.example.ibanshare.utils.room.Db
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job

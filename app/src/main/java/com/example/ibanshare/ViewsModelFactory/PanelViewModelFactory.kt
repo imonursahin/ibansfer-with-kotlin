@@ -1,4 +1,4 @@
-package com.example.ibanshare.ViewsModelFactory
+package com.example.ibanshare.viewsmodelfactory
 
 import android.app.Application
 import androidx.lifecycle.ViewModel
