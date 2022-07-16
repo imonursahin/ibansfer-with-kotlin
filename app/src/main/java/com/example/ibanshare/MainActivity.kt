@@ -15,12 +15,10 @@ import com.example.ibansfer.utils.Screen
 import com.example.ibanshare.views.AddIbanScreen
 import com.example.ibanshare.ui.theme.IbanShareTheme
 import com.example.ibanshare.views.InfoScreen
-import kotlinx.coroutines.DelicateCoroutinesApi
 
 
 class MainActivity : ComponentActivity() {
 
-    @DelicateCoroutinesApi
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -34,7 +32,6 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-@DelicateCoroutinesApi
 @Composable
 fun Navigation() {
     val navController = rememberNavController()

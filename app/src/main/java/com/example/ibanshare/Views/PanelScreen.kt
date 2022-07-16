@@ -5,12 +5,15 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.Info
+import androidx.compose.material.icons.filled.Share
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.TextStyle
@@ -82,14 +85,26 @@ fun PanelScreen(navController: NavController) {
                                     modifier = Modifier
                                         .padding(all = 5.dp)
                                 )
-                                OutlinedButton(onClick = {}) {
 
-                                    Text(
-                                        text = "Paylaş",
-                                        style = TextStyle(fontSize = 14.sp),
-                                        color = colorResource(id = R.color.Bttn)
-                                    )
+                                Row {
 
+                                    IconButton(modifier = Modifier.then(Modifier.size(48.dp)),
+                                        onClick = { viewModel.deleteData(bank.ibanId) }) {
+                                        Icon(
+                                            Icons.Filled.Delete,
+                                            "contentDescription",
+                                            tint = Color.Red
+                                        )
+                                    }
+
+                                    IconButton(modifier = Modifier.then(Modifier.size(48.dp)),
+                                        onClick = { }) {
+                                        Icon(
+                                            Icons.Filled.Share,
+                                            "contentDescription",
+                                            tint = colorResource(id = R.color.Bttn)
+                                        )
+                                    }
 
                                 }
                             }

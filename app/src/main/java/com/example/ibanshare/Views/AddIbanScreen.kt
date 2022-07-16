@@ -18,10 +18,14 @@ import androidx.navigation.NavController
 import com.example.ibanshare.R
 import com.example.ibanshare.viewsmodel.AddIbanViewModel
 import com.example.ibanshare.viewsmodelfactory.AddIbanViewModelFactory
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.launch
 
 
 @Composable
 fun AddIbanScreen(navController: NavController) {
+    val scaffoldState = rememberScaffoldState()
+    val snackbarCoroutineScope = rememberCoroutineScope()
 
     val ibanOwner = remember { mutableStateOf("") }
     val ibanBank = remember { mutableStateOf("") }
@@ -35,6 +39,7 @@ fun AddIbanScreen(navController: NavController) {
     )
 
     Scaffold(
+        scaffoldState = scaffoldState,
         backgroundColor = colorResource(id = R.color.MainColor),
         topBar = {
 
@@ -141,15 +146,16 @@ fun AddIbanScreen(navController: NavController) {
                                     ibanOwner.value,
                                     ibanNumber.value
                                 )
-
                                 localFocusManager.clearFocus()
                                 navController.popBackStack()
 
-                                println("success")
-
-
                             } else {
-                                println("error")
+
+                                snackbarCoroutineScope.launch {
+                                    scaffoldState.snackbarHostState.showSnackbar("Tüm alanları doldurun")
+                                }
+
+
                             }
 
 
