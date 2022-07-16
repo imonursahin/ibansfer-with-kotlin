@@ -1,6 +1,7 @@
 package com.example.ibanshare.views
 
 import android.app.Application
+import android.content.Intent
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.*
@@ -19,6 +20,7 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.example.ibanshare.R
@@ -98,7 +100,23 @@ fun PanelScreen(navController: NavController) {
                                     }
 
                                     IconButton(modifier = Modifier.then(Modifier.size(48.dp)),
-                                        onClick = { }) {
+                                        onClick = {
+
+                                            val type = "text/plain"
+                                            val extraText =
+                                                "${bank.ibanBank} \n ${bank.ibanOwner} \n ${bank.ibanNumber} \n IBANsfer aracılığıyla gönderildi."
+                                            val shareWith = ""
+
+                                            val intent = Intent(Intent.ACTION_SEND)
+                                            intent.type = type
+                                            intent.putExtra(Intent.EXTRA_TEXT, extraText)
+
+                                            ContextCompat.startActivity(
+                                                context,
+                                                Intent.createChooser(intent, shareWith),
+                                                null
+                                            )
+                                        }) {
                                         Icon(
                                             Icons.Filled.Share,
                                             "contentDescription",
